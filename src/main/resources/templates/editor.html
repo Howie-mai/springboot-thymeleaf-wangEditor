@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="div1" th:utext="${text}">
+
+</div>
+<button id="btn1">获取html</button>
+<button id="btn2">获取text</button>
+
+</body>
+<!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+<script type="text/javascript" src="/static/editor/wangEditor.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var editor;
+    $(document).ready(function () {
+        var E = window.wangEditor
+        editor = new E('#div1') // 隐藏“网络图片”tab
+        editor.customConfig.showLinkImg = false
+        // editor.customConfig.qiniu = true
+// 或者 var editor = new E( document.getElementById('editor') )
+// 通过 url 参数配置 debug 模式。url 中带有 wangeditor_debug_mode=1 才会开启 debug 模式
+        editor.customConfig.debug = location.href.indexOf('wangeditor_debug_mode=1') > 0
+        editor.customConfig.uploadImgServer = '/upload';
+        editor.customConfig.uploadFileName = 'imageFile'; //与后台获取文件名相同
+        editor.customConfig.linkImgCallback = function (url) {
+            console.log(url) // url 即插入图片的地址
+        }
+
+        editor.create()
+
+        document.getElementById('btn1').addEventListener('click', function () {
+            // 读取 html
+            alert(editor.txt.html())
+            console.log(editor.txt.html())
+        }, false)
+
+        document.getElementById('btn2').addEventListener('click', function () {
+            // 读取 text
+            alert(editor.txt.text())
+            console.log(editor.txt.text())
+        }, false)
+    })
+
+
+</script>
+</html>
