@@ -29,13 +29,13 @@ public class EditorController {
 
     @RequestMapping("/index")
     public String index(Model model) {
-        model.addAttribute("text","<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p><p><img src=\"http://image.hymbb.cn/system/images/d7e2a371640e4cc590e2474667eda969\" style=\"max-width:100%;\"><br></p>");
+        model.addAttribute("text","<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p><p><img src=\"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2229864841,4232235061&fm=27&gp=0.jpg\" style=\"max-width:100%;\"><br></p>");
         return "editor";
     }
 
     @RequestMapping("/index2")
     public String index2(Model model) {
-        model.addAttribute("text","<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p><p><img src=\"http://image.hymbb.cn/system/images/d7e2a371640e4cc590e2474667eda969\" style=\"max-width:100%;\"><br></p>");
+        model.addAttribute("text","<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p><p><img src=\"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2229864841,4232235061&fm=27&gp=0.jpg\" style=\"max-width:100%;\"><br></p>");
         return "editor2";
     }
 
